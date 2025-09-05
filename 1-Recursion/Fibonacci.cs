@@ -10,21 +10,40 @@ namespace ALGA
     {
         public static int fibonacci_recursive(int n)
         {
-            throw new NotImplementedException();
+            if (n <= 0)
+                return 0;
+            if (n == 1)
+                return 1;
+            
+            return fibonacci_recursive(n - 1) + fibonacci_recursive(n - 2);
         }
 
         public static int fibonacci_iterative(int n)
         {
-            throw new NotImplementedException();
+            if (n <= 0)
+                return 0;
+            if (n == 1)
+                return 1;
+            
+            int prev = 0;
+            int current = 1;
+            int result;
+            
+            for (int i = 2; i <= n; i++)
+            {
+                result = current + prev;
+                prev = current;
+                current = result;
+            }
+            
+            return current;
         }
 
         public enum Answer { IterativeIsFaster, RecursiveIsFaster };
 
         public static Answer which_is_faster()
         {
-            throw new NotImplementedException();
-            // return Answer.IterativeIsFaster;
-            // return Answer.RecursiveIsFaster;
+            return Answer.IterativeIsFaster;
         }
     }
 }
